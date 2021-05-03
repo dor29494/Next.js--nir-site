@@ -17,7 +17,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: theme.palette.background.gallery,
+    background: theme.palette.background.dark,
     [theme.breakpoints.up("md")]: {
       margin: "3px",
       maxWidth: 345,
@@ -56,7 +56,7 @@ export default function index({ images }) {
                   title="Contemplative Reptile"
                 />
                 <CardContent>
-                  <Typography gutterBottom fontSize="24px" variant="subtitle2" component="h2">
+                  <Typography gutterBottom fontSize="24px" variant="subtitle1" component="h2">
                     {gallery.title}
                   </Typography>
                 </CardContent>

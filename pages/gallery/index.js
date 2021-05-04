@@ -27,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
       margin: "auto",
     },
   },
-  button:{
+  button: {
     color: theme.palette.background.paper,
     fontSize: "16px",
-    fontFamily: "Assistant"
+    fontFamily: "Assistant",
   },
 }));
 
@@ -39,39 +39,49 @@ export default function index({ images }) {
 
   return (
     <>
-    <Layout article title={"ניר הקוסם | גלריות"}>
-      <Grid container mt={2} alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-          <Typography variant="h1">כל הגלריות</Typography>
-        </Grid>
-        {images.map((gallery, i) => (
-          <Grid item xs={12} md={4} classes={classes.galleryGridItem} mb={2}>
-            <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="140"
-                  image={gallery.images[0].src}
-                  title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography gutterBottom fontSize="24px" variant="subtitle1" component="h2">
-                    {gallery.title}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Link href={`/gallery/${gallery.slug}`}>
-                  <Button className={classes.button}>
-                    לצפייה
-                  </Button>
-                </Link>
-              </CardActions>
-            </Card>
+      <Layout article title={"ניר הקוסם | גלריות"}>
+        <Grid container mt={2} alignItems="center" justifyContent="center">
+          <Grid item xs={12}>
+            <Typography variant="h1">כל הגלריות</Typography>
           </Grid>
-        ))}
-      </Grid>
+          {images.map((gallery, i) => (
+            <Grid
+              key={i}
+              item
+              xs={12}
+              md={4}
+              classes={classes.galleryGridItem}
+              mb={2}
+            >
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    alt="Contemplative Reptile"
+                    height="140"
+                    image={gallery.images[0].src}
+                    title="Contemplative Reptile"
+                  />
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      fontSize="24px"
+                      variant="subtitle1"
+                      component="h2"
+                    >
+                      {gallery.title}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Link href={`/gallery/${gallery.slug}`}>
+                    <Button className={classes.button}>לצפייה</Button>
+                  </Link>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Layout>
     </>
   );

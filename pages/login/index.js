@@ -24,25 +24,21 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  buttonGridItem:{
+  buttonGridItem: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
 }));
-const inputProps = {
-  fontSize: "10px",
-  color: "red",
-};
 
-const InputField = withStyles((theme) =>({
+const InputField = withStyles((theme) => ({
   root: {
     marginBottom: "0.5rem",
     "& label.Mui-focused": {
-      color: "tomato",
+      color: theme.palette.background.light,
     },
     "& label": {
-      color: "lightgrey",
+      color: theme.typography.subtitle1,
       fontWeight: "200",
     },
     "& .MuiOutlinedInput-root": {
@@ -69,14 +65,10 @@ export default function Login(props) {
       <Grid container mt={3} justifyContent="center" alignItems="center">
         <Grid item xs={12} mt={3} mb={2}>
           <Typography variant="h1" component="div" align="center">
-         Login
+            Login
           </Typography>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          className={classes.inputGridItem}
-        >
+        <Grid item xs={12} className={classes.inputGridItem}>
           <InputField
             mb={2}
             size="small"
@@ -101,8 +93,8 @@ export default function Login(props) {
         <Grid item xs={12} className={classes.buttonGridItem}>
           <Button
             onClick={async () => {
-               await firebase.auth().signInWithEmailAndPassword(email, pass)
-             
+              await firebase.auth().signInWithEmailAndPassword(email, pass);
+
               router.push("/backoffice");
             }}
           >

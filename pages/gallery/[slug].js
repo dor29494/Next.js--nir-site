@@ -34,9 +34,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "70px",
   },
   galleryPaper: {
+    boxShadow: "none",
     maxWidth: "700px",
     minHeight: "250px",
-    background: theme.palette.secondary.main,
+    background: theme.palette.background.default,
   },
 }));
 
@@ -44,19 +45,26 @@ export default function Gallery({ galleryData, loading }) {
   const classes = useStyles();
   const router = useRouter();
   const { slug } = router.query;
-  const galleryDescription = `- ניר הקוסם - אלבום תמונות ${galleryData.title} - ניר קוסם ליום הולדת בכל חלקי הארץ הופעתו מרשימה מצחיקה מהנה ובוודאי שמקצועית באתר זה תוכלו להתרשם הן מהגלריה והן מהתכנים גלישה מהנה`
- 
+  const galleryDescription = `- ניר הקוסם - אלבום תמונות ${galleryData.title} - ניר קוסם ליום הולדת בכל חלקי הארץ הופעתו מרשימה מצחיקה מהנה ובוודאי שמקצועית באתר זה תוכלו להתרשם הן מהגלריה והן מהתכנים גלישה מהנה`;
 
   return (
     <>
-      <Layout article title={`ניר הקוסם - אלבום תמונות - ${galleryData.title}`} description={galleryDescription}>
+      <Layout
+        article
+        title={`ניר הקוסם - אלבום תמונות - ${galleryData.title}`}
+        description={galleryDescription}
+      >
         {loading ? (
           <Container direction="rtl" className={classes.root}>
-            <Typography variant="h1" className={classes.title} color="primary.main">
+            <Typography
+              variant="h1"
+              className={classes.title}
+              color="primary.main"
+            >
               {galleryData && galleryData.title}
             </Typography>
             <Paper className={classes.galleryPaper}>
-              <ImageGallery data={galleryData} classes={classes} />
+              <ImageGallery data={galleryData} />
             </Paper>
           </Container>
         ) : (
@@ -96,17 +104,4 @@ export async function getServerSideProps({ query }) {
       galleryData: galleryData || null,
     },
   };
-}
-
-{
-  /* //   <h1>{galleryData && galleryData.title}</h1>
-          //   <Box className={classes.root}>
-          //     <GridList cols={3} className={classes.gridList}>
-          //       {galleryData.images.map((tile, key) => (
-          //         <GridListTile key={key}>
-          //           <img src={tile.src} alt={tile.alt} />
-          //         </GridListTile>
-          //       ))}
-          //     </GridList>
-          //   </Box> */
 }

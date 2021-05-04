@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -41,39 +40,43 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme, props) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
     width: "100%",
   },
   postsTab: {
-    background: theme.palette.background.dark,
-    marginLeft: "-33px",
-    borderRadius: "25px",
-    opacity: (value) => value === 0 ? 1 : 0.5,
-    zIndex: (value) => value === 0 ? 1 : 0,
-    [theme.breakpoints.down("md")]:{
-      minWidth: "120px"
-    }
+    "&.MuiTab-root": {
+      color: theme.palette.background.light,
+      background: theme.palette.background.dark,
+      marginLeft: "-33px",
+      borderRadius: "25px",
+      opacity: (value) => (value === 0 ? 1 : 0.5),
+      zIndex: (value) => (value === 0 ? 1 : 0),
+      [theme.breakpoints.down("md")]: {
+        minWidth: "120px",
+      },
+    },
   },
-
   imagesTab: {
-    marginLeft: "-33px",
-    background: theme.palette.background.dark,
-    borderRadius: "25px",
-    opacity: (value) => value === 1 ? 1 : 0.5,
-    zIndex: (value) => value === 1 ? 1 : 0,
-    [theme.breakpoints.down("md")]:{
-      minWidth: "120px"
-    }
+    "&.MuiTab-root": {
+      marginLeft: "-33px",
+      color: theme.palette.background.light,
+      background: theme.palette.background.dark,
+      borderRadius: "25px",
+      opacity: (value) => (value === 1 ? 1 : 0.5),
+      zIndex: (value) => (value === 1 ? 1 : 0),
+      [theme.breakpoints.down("md")]: {
+        minWidth: "120px",
+      },
+    },
   },
-  buttonBox:{
+  buttonBox: {
     position: "relative",
     padding: "1rem",
     marginTop: "1rem",
     display: "flex",
-    justifyContent: "center"
-
+    justifyContent: "center",
   },
 }));
 
@@ -88,9 +91,7 @@ export default function SwitchTabs({ postList, imageList }) {
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12}>
-        <Box
-        className={classes.buttonBox}
-        >
+        <Box className={classes.buttonBox}>
           <Tab
             label="פוסטים"
             {...a11yProps(0)}

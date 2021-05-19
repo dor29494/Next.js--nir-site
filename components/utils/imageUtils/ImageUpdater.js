@@ -145,8 +145,8 @@ export default function ImageUpdater({
             setSnackBarObj({
               toggle: true,
               msg: "Document successfully written!",
-            })
-            setData(null)
+            });
+            setData(null);
           })
           .catch((error) => {
             console.error("Error writing document: ", error);
@@ -165,20 +165,20 @@ export default function ImageUpdater({
             setSnackBarObj({
               toggle: true,
               msg: "Document successfully written!",
-            })
-            setData(null)
+            });
+            setData(null);
           })
           .catch((error) => {
             console.error("Error writing document: ", error);
             setSnackBarObj({ toggle: true, msg: "Error writing document" });
           });
       }
-    }  
-    if(!validURL(data.src)){
-      return setErrorMsg("Your image src is not expected")
     }
-    if(data.alt.length < 3){
-      return setErrorMsg("Your alt most have at least 3 characters")
+    if (!validURL(data.src)) {
+      return setErrorMsg("Your image src is not expected");
+    }
+    if (data.alt.length < 3) {
+      return setErrorMsg("Your alt most have at least 3 characters");
     }
   };
   const dialogClose = () => setData(null);
@@ -212,7 +212,7 @@ export default function ImageUpdater({
         <Divider color="grey" light={true} flexItem />
         <DialogContent dividers>
           <Grid container alignItems="center" justifyContent="center">
-            <Box style={{color: "red"}}>{errorMsg}</Box>
+            <Box style={{ color: "red" }}>{errorMsg}</Box>
             <Grid
               item
               xs={12}

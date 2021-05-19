@@ -5,14 +5,13 @@ import { useRouter } from "next/router";
 import { Button, Grid, TextField, Typography } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   textField: {
     width: "100%",
     background: "white",
     borderRadius: "30px",
     maxWidth: "300px",
     maxHeight: "25px",
-    ".&outlined-basic": {},
     ". &MuiInputLabel-root": {
       fontSize: "14px",
       direction: "rtl",
@@ -29,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-}));
+});
 
 const InputField = withStyles((theme) => ({
   root: {

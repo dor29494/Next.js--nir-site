@@ -11,6 +11,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^27.1.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
+    "@emotion/react": "^11.4.0",
     "@material-ui/core": "^5.0.0-alpha.30",
     "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
@@ -24,8 +25,6 @@
     "react-alice-carousel": "^2.5.1",
     "react-dom": "^17.0.1",
     "react-fancybox": "^0.2.5",
-    "react-image": "^4.0.3",
-    "react-image-gallery": "^1.0.9",
     "react-responsive-carousel": "^3.2.18",
     "react-swipeable-views": "^0.13.9",
     "redux": "^4.0.5",
